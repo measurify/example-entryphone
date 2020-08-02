@@ -15,8 +15,19 @@ We developed the Android Application named **Mike**, we used a framework named [
 ## Simulation of the hardware
 To simulate the hardware device you can use the webpage, named ```server.html```, in the edge folder. The start recording button equivalent to the button to ring the bell.
 After you click this button, a new measurement is created on Measurify, and every 3 seconds the video is attached at the measurement.
-You can get this video using a GET Request: ```shttp://students.atmosphere.tools/v1/measurements/**MeasurementID**/file?``` you have to fill the measurement ID and in the header you have to use the login token, so the request will be something like ```http://students.atmosphere.tools/v1/measurements/5f15719b59060e445c877cc5/file?Authorization=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InN0YXR1cyI6ImVuYWJsZWQiLCJfaWQiOiI1ZTRmOGI2YWY2ZmRjYjM0ZGQyY2I0NDMiLCJ1c2VybmFtZSI6ImVudHJ5cGhvbmUtdXNlcm5hbWUiLCJwYXNzd29yZCI6ImVudHJ5cGhvbmUtcGFzc3dvcmQiLCJ0eXBlIjoicHJvdmlkZXIiLCJfX3YiOjB9LCJ0ZW5hbnQiOnsicGFzc3dvcmRoYXNoIjpmYWxzZSwiX2lkIjoiYXRtb3NwaGVyZS1wcm9kIn0sImlhdCI6MTU5NTI0NTMxMSwiZXhwIjoxNTk1MjQ3MTExfQ.Whiu0F-l4aRo0XxrKcZroAj0GMN2HCDJ2V3JW8CXF5s```
+You can get this video using a GET Request: 
+```shttp://students.atmosphere.tools/v1/measurements/MeasurementID/file?``` 
+you have to fill the measurement ID and in the header you have to use the login token, so the request will be something like 
+```http://students.atmosphere.tools/v1/measurements/5f15719b59060e445c877cc5/file?Authorization=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InN0YXR1cyI6ImVuYWJsZWQiLCJfaWQiOiI1ZTRmOGI2YWY2ZmRjYjM0ZGQyY2I0NDMiLCJ1c2VybmFtZSI6ImVudHJ5cGhvbmUtdXNlcm5hbWUiLCJwYXNzd29yZCI6ImVudHJ5cGhvbmUtcGFzc3dvcmQiLCJ0eXBlIjoicHJvdmlkZXIiLCJfX3YiOjB9LCJ0ZW5hbnQiOnsicGFzc3dvcmRoYXNoIjpmYWxzZSwiX2lkIjoiYXRtb3NwaGVyZS1wcm9kIn0sImlhdCI6MTU5NTI0NTMxMSwiZXhwIjoxNTk1MjQ3MTExfQ.Whiu0F-l4aRo0XxrKcZroAj0GMN2HCDJ2V3JW8CXF5s```
 
+At the moment Mike doesn't get the measurement ID automatically, you have to edit the code on ```dashboard_screen.dart``` on line 84.
+
+## Open the door
+We implemented the code to run this feature, when you press this button, Mike posts a new measurement on 
+      "thing": "lock",
+      "feature": "entry",
+      "device": "door-opener"
+so your device should listen to new measurement on this Measurify's device and open the lock when a new measurement is posted.
 
 
 
