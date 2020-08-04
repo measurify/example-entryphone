@@ -24,9 +24,13 @@ At the moment Mike doesn't get the measurement ID automatically, you have to edi
 
 ## Open the door
 We implemented the code to run this feature, when you press this button, Mike posts a new measurement on 
+
       "thing": "lock",
+
       "feature": "entry",
+      
       "device": "door-opener"
+
 so your device should listen to new measurement on this Measurify's device and open the lock when a new measurement is posted.
 
 ## QUICK START
