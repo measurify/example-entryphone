@@ -29,8 +29,17 @@ We implemented the code to run this feature, when you press this button, Mike po
       "device": "door-opener"
 so your device should listen to new measurement on this Measurify's device and open the lock when a new measurement is posted.
 
+## QUICK START
+In order to run Mike, you have to right-click on the client folder, click on "Open with Code".
+At this point you have to open the command line and execute ```flutter pub get```, Code will install all packages needed by Mike written in the pubspec.yaml .
+Now you can run an Android Emulator or connect an Android device with Debug Mode enabled and run the command ```flutter run``` in Code's command line.
+If you want to deploy the APK you can visit [this link](https://flutter.dev/docs/deployment/android).
 
-
+The ```server.html``` posts the new measurement with the video attached, but at the moment Mike doesn't get the measurement's ID automatically, we thought two different ways to handle with this problem:
+      1. Mike will read the last notification and use that ID
+      2. Mike makes a GET request to Measurify and use the last Measurement posted by the entryphone device
+   
+We started to develop the second way, in ```lib\services\networking.dart``` you can find our **getMeasurementID** class.
 
 
 
